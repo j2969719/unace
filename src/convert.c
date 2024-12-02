@@ -49,17 +49,18 @@ INT       StrLen,
 
 PCHAR   APPS_EXE_CONVERT_MakeStrShorter(PCHAR DestStr, PCHAR SourceStr, INT Width)
 {
-  if (strlen(SourceStr) > Width)
-  {
-    memmove(DestStr, &SourceStr[strlen(SourceStr) - Width + 4], Width - 3);
-    BASE_CONVERT_StrCatBefore(BASE_PATHFUNC_SEPARATORSTR "..", DestStr);
-  }
-  else
-  {
+//  if (strlen(SourceStr) > Width)
+//  {
+//    memmove(DestStr, &SourceStr[strlen(SourceStr) - Width + 4], Width - 3);
+//    BASE_CONVERT_StrCatBefore(BASE_PATHFUNC_SEPARATORSTR "..", DestStr);
+//  }
+//  else
+//  {
     strcpy(DestStr, SourceStr);
-  }
+//  }
 
-  return DestStr;
+//  return DestStr;
+  return SourceStr;
 }
 
 /*-----------------APPS_EXE_CONVERT_GetPercents---------------------------*/
