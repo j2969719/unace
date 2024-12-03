@@ -42,7 +42,7 @@ void    APPS_EXE_ACEFUNCS_List(BOOL Verbose)
 CHAR      ShortStr[BASE_LFN_MAXLEN],
           SizeStr1[80],
           SizeStr2[80],
-          OutputStr[160];
+          OutputStr[4096 + 45];
 PCHAR     OutputFileName;
 INT       I;
 union {
@@ -91,7 +91,7 @@ ULONG                   Raw;
           OutputFileName++;
         }
 
-        APPS_EXE_CONVERT_MakeStrShorter(ShortStr, OutputFileName, 35);
+        //APPS_EXE_CONVERT_MakeStrShorter(ShortStr, OutputFileName, 35);
 
         FileTime.Raw = BASE_ARCBLK.Header.File.FTIME;
 
@@ -115,7 +115,7 @@ ULONG                   Raw;
                                       (INT) BASE_ARCBLK.Header.File.SIZE) / 10,
           BASE_ARCBLK.Header.File.HEAD_FLAGS & BASE_ACESTRUC_FLAG_PASSWORD    ?
             '*' : ' ',
-          BASE_CONVERT_ToOEM(ShortStr));
+          BASE_CONVERT_ToOEM(OutputFileName));
 
         for (I = 0; I < 14; I++)
         {
